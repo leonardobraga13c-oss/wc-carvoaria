@@ -41,11 +41,21 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(6px);
+                transform: translateY(4px);
             }
         }
         .animate-bounce-smooth {
             animation: bounce-smooth 2s infinite ease-in-out;
+        }
+        /* Classes para o Fade In / Fade Out suave da indicação do Hero */
+        #hero-scroll-indicator {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #hero-scroll-indicator.visible {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
@@ -114,7 +124,7 @@
                 <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                     Atuação sólida no setor de produção e fornecimento de carvão vegetal para o mercado industrial e siderúrgico.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                     <a href="#operacao" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-green/20">
                         Nossa Operação
                     </a>
@@ -123,9 +133,9 @@
                     </a>
                 </div>
 
-                <!-- Indicação de rolagem recolocada na parte inferior do Hero, centralizada -->
-                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 text-xs sm:text-sm tracking-wider uppercase font-medium">
-                    <span>Role para baixo para continuar</span>
+                <!-- Indicação visual discreta posicionada abaixo dos botões, aparecendo após inatividade -->
+                <div id="hero-scroll-indicator" class="flex flex-col items-center gap-2 text-gray-400 text-xs sm:text-sm tracking-wider uppercase font-medium mt-6">
+                    <span>Continue explorando</span>
                     <i class="fa-solid fa-chevron-down text-brand-green animate-bounce-smooth text-base"></i>
                 </div>
             </div>
@@ -141,7 +151,7 @@
                             A W&C Carvoaria é estruturada para atender com seriedade e eficiência as demandas do mercado industrial, prezando sempre pela organização, controle e cumprimento de prazos em sua operação.
                         </p>
                         <p class="text-gray-400 text-base leading-relaxed">
-                            Contamos com uma equipe dedicada e processos bem definidos para garantir a constância e a qualidade na entrega do carvão vegetal.
+                            Contamos com uma equipe dedicada e processos bien definidos para garantir a constância e a qualidade na entrega do carvão vegetal.
                         </p>
                     </div>
                     <div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 shadow-xl">
@@ -306,7 +316,7 @@
                 <p class="text-gray-400 max-w-2xl mx-auto text-base mb-12">Fale conosco através do nosso e-mail oficial para informações, parcerias e fornecimento.</p>
                 
                 <div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 sm:p-12 max-w-xl mx-auto text-center shadow-xl">
-                    <p class="text-gray-300 text-base mb-8">Estamos à disposição para atender suas demandas com agilidade pelo nosso e-mail oficial:</p>
+                    <p class="text-gray-300 text-base mb-8">Dúvidas ou reclamações? Entre em contato conosco pelo nosso e-mail oficial.</p>
                     <div class="mb-8">
                         <a href="mailto:wcarvoaria@gmail.com" class="text-brand-green font-bold text-xl sm:text-2xl hover:underline">wcarvoaria@gmail.com</a>
                     </div>
@@ -319,6 +329,14 @@
                 </div>
             </div>
         </section>
+
+        <!-- Indicação de Fim da Página (Exibida apenas ao atingir o final absoluto) -->
+        <div id="page-end-indicator" class="py-12 bg-dark-950 border-t border-dark-800 text-center transition-all duration-700 opacity-0 transform translate-y-4">
+            <p class="text-gray-400 text-sm sm:text-base tracking-widest uppercase font-medium inline-flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-brand-green text-xs"></i>
+                Você chegou ao final
+            </p>
+        </div>
     </main>
 
 
@@ -546,7 +564,7 @@
     </footer>
 
 
-    <!-- SCRIPTS DE CONTROLE DA NAVEGAÇÃO, MENU MOBILE E DETECÇÃO DO BOTÃO DE E-MAIL -->
+    <!-- SCRIPTS DE CONTROLE DA NAVEGAÇÃO, MENU MOBILE, DETECÇÃO DO BOTÃO DE E-MAIL E INTERAÇÕES DE ROLAGEM -->
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -599,7 +617,68 @@
             document.getElementById('home-view').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             fecharMenuMobile();
+            reiniciarTimerInatividade();
         }
+
+        // Lógica de Interação para a indicação "Continue explorando" e "Você chegou ao final"
+        let timerInatividade = null;
+        const heroIndicator = document.getElementById('hero-scroll-indicator');
+        const pageEndIndicator = document.getElementById('page-end-indicator');
+
+        function reiniciarTimerInatividade() {
+            if (heroIndicator) {
+                heroIndicator.classList.remove('visible');
+            }
+            clearTimeout(timerInatividade);
+            
+            // Se estiver no topo da página, agenda para aparecer após 4 segundos de inatividade
+            if (window.scrollY < 50) {
+                timerInatividade = setTimeout(() => {
+                    if (window.scrollY < 50 && heroIndicator) {
+                        heroIndicator.classList.add('visible');
+                    }
+                }, 4000);
+            }
+        }
+
+        // Monitora o evento de rolagem da página
+        window.addEventListener('scroll', () => {
+            const scrollAtual = window.scrollY;
+
+            // Assim que começar a rolar, oculta imediatamente a indicação do Hero
+            if (scrollAtual > 10 && heroIndicator) {
+                heroIndicator.classList.remove('visible');
+                clearTimeout(timerInatividade);
+            }
+
+            // Verifica se chegou ao final absoluto da página
+            const alturaTotal = document.documentElement.scrollHeight - window.innerHeight;
+            if (pageEndIndicator) {
+                if (scrollAtual >= alturaTotal - 40) {
+                    pageEndIndicator.classList.remove('opacity-0', 'translate-y-4');
+                    pageEndIndicator.classList.add('opacity-100', 'translate-y-0');
+                } else {
+                    pageEndIndicator.classList.add('opacity-0', 'translate-y-4');
+                    pageEndIndicator.classList.remove('opacity-100', 'translate-y-0');
+                }
+            }
+        });
+
+        // Reinicia o timer ao detectar interações do usuário no início
+        ['mousemove', 'keydown', 'touchstart', 'scroll'].forEach(evento => {
+            window.addEventListener(evento, () => {
+                if (window.scrollY < 50) {
+                    if (heroIndicator && heroIndicator.classList.contains('visible') && evento !== 'scroll') {
+                        // Mantém visível se já apareceu, mas reseta o timer de aparição se reiniciar
+                    }
+                }
+            }, { passive: true });
+        });
+
+        // Inicializa o timer ao carregar a página
+        window.addEventListener('load', () => {
+            reiniciarTimerInatividade();
+        });
     </script>
 </body>
 </html>
