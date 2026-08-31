@@ -35,6 +35,18 @@
         .subpage-view.active {
             display: block;
         }
+        /* Animação suave e discreta para a seta indicadora */
+        @keyframes bounce-smooth {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(6px);
+            }
+        }
+        .animate-bounce-smooth {
+            animation: bounce-smooth 2s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-dark-950 text-gray-100 font-sans antialiased selection:bg-brand-green selection:text-black">
@@ -102,13 +114,19 @@
                 <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                     Atuação sólida no setor de produção e fornecimento de carvão vegetal para o mercado industrial e siderúrgico.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
                     <a href="#operacao" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-green/20">
                         Nossa Operação
                     </a>
                     <a href="#" onclick="tratarBotaoEmail(event)" class="bg-dark-900 hover:bg-dark-800 border border-dark-700 text-white font-semibold px-8 py-4 rounded-xl transition-all inline-flex items-center justify-center gap-2">
                         <i class="fa-solid fa-envelope text-brand-green"></i> Falar por e-mail
                     </a>
+                </div>
+
+                <!-- Indicação de rolagem recolocada na parte inferior do Hero, centralizada -->
+                <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 text-xs sm:text-sm tracking-wider uppercase font-medium">
+                    <span>Role para baixo para continuar</span>
+                    <i class="fa-solid fa-chevron-down text-brand-green animate-bounce-smooth text-base"></i>
                 </div>
             </div>
         </section>
