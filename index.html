@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>W&C Carvoaria | Produção de Carvão Vegetal</title>
-  <meta name="description" content="W&C Carvoaria - Produção de carvão vegetal em Paragominas, Pará.">
+  <meta name="description" content="W&C Carvoaria - Produção de carvão vegetal em Paragominas, Pará, com foco no setor industrial e siderúrgico.">
   <style>
     * {
       margin: 0;
@@ -50,6 +50,7 @@
       text-decoration: none;
       margin-left: 25px;
       font-size: 14px;
+      transition: color 0.3s;
     }
     nav a:hover {
       color: #8fbd4b;
@@ -60,7 +61,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.88)), radial-gradient(circle at center, #30352e, #080908 70%);
+      background: linear-gradient(rgba(0,0,0,.70), rgba(0,0,0,.90)), radial-gradient(circle at center, #30352e, #080908 70%);
     }
     .hero-content {
       max-width: 1150px;
@@ -103,10 +104,11 @@
       padding: 14px 24px;
       border-radius: 6px;
       font-weight: 700;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
     .button:hover {
       background: #79a83b;
+      transform: translateY(-2px);
     }
     section {
       padding: 90px 25px;
@@ -150,9 +152,14 @@
       border: 1px solid #272d27;
       padding: 30px;
       border-radius: 10px;
+      transition: border-color 0.3s;
+    }
+    .card:hover {
+      border-color: #495e2d;
     }
     .card h3 {
       margin-bottom: 12px;
+      color: #fff;
     }
     .card p {
       color: #aaa;
@@ -170,6 +177,11 @@
     .responsibility {
       background: #111411;
     }
+    .location {
+      background: #0f1210;
+      border-top: 1px solid #202620;
+      border-bottom: 1px solid #202620;
+    }
     .contact {
       text-align: center;
       background: #171c16;
@@ -182,15 +194,20 @@
     footer {
       border-top: 1px solid #292d29;
       text-align: center;
-      padding: 25px;
+      padding: 30px 25px;
       color: #777;
       font-size: 13px;
+      background: #080a09;
+    }
+    footer p {
+      margin-top: 5px;
+      color: #555;
     }
     @media (max-width: 750px) {
-      nav { display: none; }
+      .nav nav a { margin-left: 15px; font-size: 13px; }
       .about-grid, .card-grid { grid-template-columns: 1fr; }
       section { padding: 70px 20px; }
-      h1 { font-size: 48px; }
+      h1 { font-size: 42px; }
       .hero p { font-size: 17px; }
     }
   </style>
@@ -203,6 +220,7 @@
         <a href="#empresa">Empresa</a>
         <a href="#producao">Produção</a>
         <a href="#equipe">Equipe</a>
+        <a href="#localizacao">Localização</a>
         <a href="#contato">Contato</a>
       </nav>
     </div>
@@ -210,12 +228,13 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <div class="tag">W&C Carvoaria</div>
+        <div class="tag">W&C Carvoaria • Tubarão Empreendimento</div>
         <h1>Produção de<br><span>carvão vegetal.</span></h1>
-        <p>Atuação dedicada à produção de carvão vegetal para o setor industrial, em Paragominas, Pará.</p>
-        <a class="button" href="https://wa.me/5594984371132?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20responsável%20da%20W%26C%20Carvoaria." target="_blank">Solicitar Cotação B2B</a>
+        <p>Atuação sólida e dedicada à produção de carvão vegetal para o setor industrial e siderúrgico.</p>
+        <a class="button" href="https://wa.me/5594984371132?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20responsável%20da%20W%26C%20Carvoaria." target="_blank">Falar com Comercial</a>
       </div>
     </section>
+
     <section class="about" id="empresa">
       <div class="container">
         <div class="section-title">
@@ -224,16 +243,17 @@
         </div>
         <div class="about-grid">
           <div>
-            <p>A W&C Carvoaria, também conhecida como Tubarão Empreendimento, atua na produção de carvão vegetal em Paragominas, no estado do Pará.</p>
-            <p>Nossa operação reúne diferentes profissionais em uma estrutura voltada à produção e ao fornecimento de carvão vegetal.</p>
+            <p>A W&C Carvoaria (Tubarão Empreendimento) atua de forma estruturada no segmento de produção de carvão vegetal, atendendo às demandas exigidas pelo mercado industrial.</p>
+            <p>Nossa operação reúne profissionais qualificados em diversas funções, garantindo controle, dedicação e eficiência em cada etapa do processo produtivo.</p>
           </div>
           <div>
-            <p>A empresa possui atuação direcionada ao mercado empresarial, com foco no fornecimento para o setor siderúrgico.</p>
-            <p>Pessoas, organização e produção fazem parte da rotina da operação.</p>
+            <p>Focados exclusivamente no modelo de negócios B2B, mantemos parcerias comerciais sólidas voltadas ao fornecimento contínuo para o setor siderúrgico.</p>
+            <p>Segurança operacional, organização e compromisso com o capital humano são os pilares que sustentam a nossa marca.</p>
           </div>
         </div>
       </div>
     </section>
+
     <section id="producao">
       <div class="container">
         <div class="section-title">
@@ -244,43 +264,45 @@
           <div class="card">
             <div class="number">01</div>
             <h3>Carvão vegetal</h3>
-            <p>Produção de carvão vegetal como principal produto da operação.</p>
+            <p>Produto principal da operação, voltado para atender aos parâmetros exigidos pelo setor industrial.</p>
           </div>
           <div class="card">
             <div class="number">02</div>
-            <h3>Produção</h3>
-            <p>Uma operação formada por profissionais dedicados às diferentes etapas do trabalho.</p>
+            <h3>Processo produtivo</h3>
+            <p>Estrutura operacional organizada e acompanhada de perto por profissionais experientes.</p>
           </div>
           <div class="card">
             <div class="number">03</div>
-            <h3>Mercado industrial</h3>
-            <p>Atuação voltada ao fornecimento empresarial e ao setor siderúrgico.</p>
+            <h3>Mercado B2B</h3>
+            <p>Relações comerciais diretas e corporativas com foco em parcerias de longo prazo na siderurgia.</p>
           </div>
         </div>
       </div>
     </section>
+
     <section class="team" id="equipe">
       <div class="container">
         <div class="section-title">
           <small>Nossa equipe</small>
-          <h2>Pessoas que fazem a produção acontecer.</h2>
+          <h2>Pessoas que fazem a operação acontecer.</h2>
         </div>
         <div class="card-grid">
           <div class="card">
             <h3>Administrativo</h3>
-            <p>Organização, documentação e suporte às atividades da empresa.</p>
+            <p>Gestão de processos, organização documental e suporte estratégico às atividades diárias.</p>
           </div>
           <div class="card">
             <h3>Forneiros</h3>
-            <p>Profissionais envolvidos diretamente na operação de produção.</p>
+            <p>Profissionais fundamentais na condução técnica e operacional da queima e produção do carvão.</p>
           </div>
           <div class="card">
-            <h3>Operação</h3>
-            <p>Profissionais responsáveis por atividades essenciais ao funcionamento da operação.</p>
+            <h3>Equipe Operacional</h3>
+            <p>Colaboradores dedicados a funções essenciais, manutenção e suporte logístico na área.</p>
           </div>
         </div>
       </div>
     </section>
+
     <section class="responsibility">
       <div class="container">
         <div class="section-title">
@@ -289,27 +311,46 @@
         </div>
         <div class="about-grid">
           <div>
-            <p>A operação depende do trabalho conjunto de profissionais de diferentes áreas.</p>
+            <p>A força da nossa produção reside no engajamento e na dedicação de cada profissional envolvido na rotina da carvoaria.</p>
           </div>
           <div>
-            <p>O compromisso com os funcionários faz parte da forma como enxergamos nossa operação.</p>
+            <p>Valorizamos um ambiente de trabalho pautado pelo respeito, organização e compromisso mútuo com os colaboradores.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="location" id="localizacao">
+      <div class="container">
+        <div class="section-title">
+          <small>Base operacional</small>
+          <h2>Localização estratégica.</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p>Nossas atividades estão sediadas em <strong>Paragominas, no estado do Pará</strong>, uma região de forte relevância e expressão econômica no setor florestal e produtivo.</p>
+          </div>
+          <div>
+            <p>A localização favorece a logística de escoamento e a integração com parceiros comerciais de grande porte no setor industrial e siderúrgico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contato">
       <div class="container">
         <div class="section-title">
           <small>Contato comercial</small>
           <h2>Vamos conversar.</h2>
         </div>
-        <p>Para informações e assuntos relacionados à atuação comercial da W&C Carvoaria, entre em contato com nossa equipe.</p>
+        <p>Para alinhamentos estratégicos, informações institucionais ou assuntos comerciais, entre em contato direto com nossa equipe.</p>
         <a class="button" href="https://wa.me/5594984371132?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20responsável%20da%20W%26C%20Carvoaria." target="_blank">Falar pelo WhatsApp</a>
       </div>
     </section>
   </main>
   <footer>
-    © 2026 W&C Carvoaria. Todos os direitos reservados.
+    © 2026 W&C Carvoaria (Tubarão Empreendimento). Todos os direitos reservados.
+    <p>Paragominas • Pará • Brasil</p>
   </footer>
 </body>
 </html>
