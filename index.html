@@ -177,6 +177,45 @@
     .responsibility {
       background: #111411;
     }
+    /* Estilo para os blocos de fotos/estrutura futura */
+    .structure {
+      background: #0d100e;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+    .photo-placeholder {
+      background: #131714;
+      border: 1px dashed #303a2f;
+      border-radius: 10px;
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      transition: border-color 0.3s;
+    }
+    .photo-placeholder:hover {
+      border-color: #79a83b;
+    }
+    .photo-placeholder span {
+      color: #8fbd4b;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .photo-placeholder p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
     .location {
       background: #0f1210;
       border-top: 1px solid #202620;
@@ -205,7 +244,7 @@
     }
     @media (max-width: 750px) {
       .nav nav a { margin-left: 15px; font-size: 13px; }
-      .about-grid, .card-grid { grid-template-columns: 1fr; }
+      .about-grid, .card-grid, .photo-grid { grid-template-columns: 1fr; }
       section { padding: 70px 20px; }
       h1 { font-size: 42px; }
       .hero p { font-size: 17px; }
@@ -220,6 +259,7 @@
         <a href="#empresa">Empresa</a>
         <a href="#producao">Produção</a>
         <a href="#equipe">Equipe</a>
+        <a href="#estrutura">Estrutura</a>
         <a href="#localizacao">Localização</a>
         <a href="#contato">Contato</a>
       </nav>
@@ -315,6 +355,25 @@
           </div>
           <div>
             <p>Valorizamos um ambiente de trabalho pautado pelo respeito, organização e compromisso mútuo com os colaboradores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="structure" id="estrutura">
+      <div class="container">
+        <div class="section-title">
+          <small>Registro operacional</small>
+          <h2>Estrutura e operação.</h2>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-placeholder">
+            <span>Área de Produção / Fornos</span>
+            <p>Espaço reservado para inserção de foto real da operação.</p>
+          </div>
+          <div class="photo-placeholder">
+            <span>Armazenamento de Carvão</span>
+            <p>Espaço reservado para inserção de foto real do produto.</p>
           </div>
         </div>
       </div>
