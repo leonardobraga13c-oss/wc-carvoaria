@@ -35,25 +35,27 @@
         .subpage-view.active {
             display: block;
         }
-        /* Animação suave para a roda do mouse */
-        @keyframes scroll-wheel {
+        
+        /* Animação suave para a rodinha do mouse em CSS puro */
+        @keyframes scroll-wheel-pure {
             0% {
                 transform: translateY(0);
                 opacity: 1;
             }
             50% {
                 transform: translateY(6px);
-                opacity: 0.5;
+                opacity: 0.3;
             }
             100% {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-        .animate-scroll-wheel {
-            animation: scroll-wheel 1.8s infinite ease-in-out;
+        .animate-scroll-wheel-pure {
+            animation: scroll-wheel-pure 1.8s infinite ease-in-out;
         }
-        /* Classes para o Fade In / Fade Out suave da indicação do Hero */
+
+        /* Classes para o Fade In / Fade Out suave da indicação do Hero usando opacity, visibility e transition */
         #hero-scroll-indicator {
             opacity: 0;
             visibility: hidden;
@@ -139,10 +141,10 @@
                     </a>
                 </div>
 
-                <!-- Indicador visual em formato de mouse -->
-                <div id="hero-scroll-indicator" class="flex justify-center mt-8">
-                    <div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-1">
-                        <div class="w-1 h-2.5 bg-brand-green rounded-full animate-scroll-wheel"></div>
+                <!-- Indicador visual em formato de mouse (CSS puro, centralizado, abaixo dos botões) -->
+                <div id="hero-scroll-indicator" class="flex justify-center mt-6">
+                    <div style="width: 26px; height: 42px; border: 2px solid #9ca3af; border-radius: 13px; display: flex; justify-content: center; padding-top: 6px;">
+                        <div class="animate-scroll-wheel-pure" style="width: 4px; height: 8px; background-color: #10b981; border-radius: 2px;"></div>
                     </div>
                 </div>
             </div>
@@ -301,7 +303,4 @@
                         <p class="text-gray-400 text-sm leading-relaxed">Estrutura física planejada para dar suporte completo às atividades produtivas.</p>
                     </div>
                     <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-                        <h3 class="text-lg font-semibold text-white mb-2">Armazenamento</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Espaços organizados para o correto acondicionamento do carvão vegetal.</p>
-                    </div>
-                    <div class="bg-dark-900 bord
+                        <h3 class="text-lg font-semibold text-white mb-2">Armazenam
