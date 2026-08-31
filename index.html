@@ -88,11 +88,27 @@
 
     <!-- CONTAINER DA PÁGINA PRINCIPAL (HOME) -->
     <main id="home-view" class="subpage-view active">
-        <!-- Seção Início / Hero -->
+        <!-- Seção Início / Hero (Substituição do elemento 404/tranca por composição visual industrial de carvoaria com CSS/FontAwesome) -->
         <section id="inicio" class="relative pt-36 pb-28 md:pt-48 md:pb-36 border-b border-dark-800 overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80" alt="Carvoaria Industrial" class="w-full h-full object-cover object-center opacity-30">
                 <div class="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-dark-950/90 to-dark-950"></div>
+            </div>
+
+            <!-- Elemento visual decorativo de fundo substituindo o antigo bloco 404/tranca -->
+            <div class="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex items-center opacity-15 pointer-events-none select-none z-0">
+                <div class="flex items-center bg-dark-900 border border-brand-green/30 rounded-2xl p-6 shadow-2xl backdrop-blur-sm gap-4">
+                    <div class="bg-brand-green text-dark-950 px-5 py-3 rounded-xl font-black text-4xl tracking-wider shadow-inner flex items-center gap-2">
+                        <i class="fa-solid fa-fire-flame-curved text-3xl"></i>
+                        <span>W&C</span>
+                    </div>
+                    <div class="flex flex-col text-gray-300 border-l border-gray-700 pl-4 gap-1">
+                        <div class="flex items-center gap-2 text-brand-green text-sm font-bold uppercase tracking-widest">
+                            <i class="fa-solid fa-industry"></i> Setor Industrial
+                        </div>
+                        <span class="text-xs text-gray-400">Produção de Carvão Vegetal &bull; Fornos &bull; Biomassa</span>
+                    </div>
+                </div>
             </div>
 
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -263,22 +279,4 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
                         <h3 class="text-lg font-semibold text-white mb-2">Área de Produção</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Estrutura física planejada para dar suporte completo às atividades produtivas.</p>
-                    </div>
-                    <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-                        <h3 class="text-lg font-semibold text-white mb-2">Armazenamento</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Espaços organizados para o correto acondicionamento do carvão vegetal.</p>
-                    </div>
-                    <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-                        <h3 class="text-lg font-semibold text-white mb-2">Escoamento e Logística</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Preparada para viabilizar o fluxo contínuo de escoamento e fornecimento.</p>
-                    </div>
-                    <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-                        <h3 class="text-lg font-semibold text-white mb-2">Controle das Fases</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Acompanhamento e organização rigorosa mantidos em todas as fases.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Co
+                       
