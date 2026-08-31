@@ -35,36 +35,6 @@
         .subpage-view.active {
             display: block;
         }
-        
-        /* Animação suave para a rodinha do mouse em CSS puro */
-        @keyframes scroll-wheel-pure {
-            0% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(6px);
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        .animate-scroll-wheel-pure {
-            animation: scroll-wheel-pure 1.8s infinite ease-in-out;
-        }
-
-        /* Classes para o Fade In / Fade Out suave da indicação do Hero usando opacity, visibility e transition */
-        #hero-scroll-indicator {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-        #hero-scroll-indicator.visible {
-            opacity: 1;
-            visibility: visible;
-        }
     </style>
 </head>
 <body class="bg-dark-950 text-gray-100 font-sans antialiased selection:bg-brand-green selection:text-black">
@@ -132,20 +102,13 @@
                 <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                     Atuação sólida no setor de produção e fornecimento de carvão vegetal para o mercado industrial e siderúrgico.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#operacao" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-green/20">
                         Nossa Operação
                     </a>
                     <a href="#" onclick="tratarBotaoEmail(event)" class="bg-dark-900 hover:bg-dark-800 border border-dark-700 text-white font-semibold px-8 py-4 rounded-xl transition-all inline-flex items-center justify-center gap-2">
                         <i class="fa-solid fa-envelope text-brand-green"></i> Falar por e-mail
                     </a>
-                </div>
-
-                <!-- Indicador visual em formato de mouse (CSS puro, centralizado, abaixo dos botões) -->
-                <div id="hero-scroll-indicator" class="flex justify-center mt-6">
-                    <div style="width: 26px; height: 42px; border: 2px solid #9ca3af; border-radius: 13px; display: flex; justify-content: center; padding-top: 6px;">
-                        <div class="animate-scroll-wheel-pure" style="width: 4px; height: 8px; background-color: #10b981; border-radius: 2px;"></div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -160,7 +123,7 @@
                             A W&C Carvoaria é estruturada para atender com seriedade e eficiência as demandas do mercado industrial, prezando sempre pela organização, controle e cumprimento de prazos em sua operação.
                         </p>
                         <p class="text-gray-400 text-base leading-relaxed">
-                            Contamos com uma equipe dedicada e processos bien definidos para garantir a constância e a qualidade na entrega do carvão vegetal.
+                            Contamos com uma equipe dedicada e processos bem definidos para garantir a constância e a qualidade na entrega do carvão vegetal.
                         </p>
                     </div>
                     <div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 shadow-xl">
@@ -303,4 +266,25 @@
                         <p class="text-gray-400 text-sm leading-relaxed">Estrutura física planejada para dar suporte completo às atividades produtivas.</p>
                     </div>
                     <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-                        <h3 class="text-lg font-semibold text-white mb-2">Armazenam
+                        <h3 class="text-lg font-semibold text-white mb-2">Armazenamento</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Espaços organizados para o correto acondicionamento do carvão vegetal.</p>
+                    </div>
+                    <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-2">Escoamento e Logística</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Preparada para viabilizar o fluxo contínuo de escoamento e fornecimento.</p>
+                    </div>
+                    <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
+                        <h3 class="text-lg font-semibold text-white mb-2">Controle das Fases</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Acompanhamento e organização rigorosa mantidos em todas as fases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="py-24 bg-dark-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Entre em Contato</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-base mb-12">Fale conosco através do nosso e-mail oficial para informações, parcerias e fornecimento.</p>
+                
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 sm:p-
