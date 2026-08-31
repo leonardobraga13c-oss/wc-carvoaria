@@ -1,351 +1,291 @@
-<!DOCTYPE html>  <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>W&C Carvoaria | Produção e Fornecimento de Carvão Vegetal</title>
-<!-- Tailwind CSS CDN -->
-<script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-<link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-dark: {
-900: '#121212',
-950: '#0a0a0a',
-800: '#1e1e1e',
-700: '#2a2a2a'
-},
-brand: {
-green: '#10b981',
-greenHover: '#059669'
-}
-}
-}
-}
-}
-</script>
-<style>
-/* Estilos para o sistema de subpáginas internas via JS */
-.subpage-view {
-display: none;
-}
-.subpage-view.active {
-display: block;
-}
-</style>
-</head>
-<body class="bg-dark-950 text-gray-100 font-sans antialiased selection:bg-brand-green selection:text-black">  <!-- CABEÇALHO / MENU PRINCIPAL -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-dark-950/90 backdrop-blur-md border-b border-dark-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-<div class="flex items-center gap-3 cursor-pointer" onclick="voltarParaHome()">
-<div class="w-10 h-10 rounded-lg bg-brand-green flex items-center justify-center text-dark-950 font-black text-xl shadow-lg shadow-brand-green/20">
-W&C
-</div>
-<span class="text-xl font-bold tracking-tight text-white">W&C Carvoaria</span>
-</div>
-<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-<a href="#inicio" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Início</a>
-<a href="#empresa" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Empresa</a>
-<a href="#operacao" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Operação</a>
-<a href="#equipe" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Equipe</a>
-<a href="#estrutura" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Estrutura</a>
-<a href="#contato" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Contato</a>
-</nav>
-<div class="hidden md:block">
-<a href="#" onclick="tratarBotaoEmail(event)" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-brand-green/10 inline-flex items-center gap-2">
-<i class="fa-solid fa-envelope"></i> Falar por e-mail
-</a>
-</div>
-<!-- Botão Menu Mobile -->
-<button id="menu-btn" aria-label="Abrir Menu" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
-<i class="fa-solid fa-bars text-2xl"></i>
-</button>
-</div>
-<!-- Menu Mobile Dropdown -->
-<div id="mobile-menu" class="hidden md:hidden bg-dark-950 border-b border-dark-800 px-6 py-6 space-y-4">
-<a href="#inicio" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Início</a>
-<a href="#empresa" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Empresa</a>
-<a href="#operacao" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Operação</a>
-<a href="#equipe" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Equipe</a>
-<a href="#estrutura" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Estrutura</a>
-<a href="#contato" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Contato</a>
-<div class="pt-4 border-t border-dark-800">
-<a href="#" onclick="tratarBotaoEmail(event); fecharMenuMobile();" class="block text-center bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-5 py-3 rounded-lg">
-<i class="fa-solid fa-envelope"></i> Falar por e-mail
-</a>
-</div>
-</div>
-</header>
-<!-- CONTAINER DA PÁGINA PRINCIPAL (HOME) -->
-<main id="home-view" class="subpage-view active">
-<!-- Seção Início / Hero -->
-<section id="inicio" class="relative pt-36 pb-28 md:pt-48 md:pb-36 border-b border-dark-800 overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img src="[https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80](https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80)" alt="Carvoaria Industrial" class="w-full h-full object-cover object-center opacity-30">
-<div class="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-dark-950/90 to-dark-950"></div>
-</div>
-<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
-Produção e Fornecimento de Carvão Vegetal
-</h1>
-<p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-Atuação sólida no setor de produção e fornecimento de carvão vegetal para o mercado industrial e siderúrgico.
-</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<a href="#operacao" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-green/20">
-Nossa Operação
-</a>
-<a href="#" onclick="tratarBotaoEmail(event)" class="bg-dark-900 hover:bg-dark-800 border border-dark-700 text-white font-semibold px-8 py-4 rounded-xl transition-all inline-flex items-center justify-center gap-2">
-<i class="fa-solid fa-envelope text-brand-green"></i> Falar por e-mail
-</a>
-</div>
-</div>
-</section>
-<!-- Seção Empresa -->
-<section id="empresa" class="py-24 bg-dark-950 border-b border-dark-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-<div>
-<h2 class="text-3xl font-bold tracking-tight text-white mb-6">Nossa Empresa</h2>
-<p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-A W&C Carvoaria é estruturada para atender com seriedade e eficiência as demandas do mercado industrial, prezando sempre pela organização, controle e cumprimento de prazos em sua operação.
-</p>
-<p class="text-gray-400 text-base leading-relaxed">
-Contamos com uma equipe dedicada e processos bien definidos para garantir a constância e a qualidade na entrega do carvão vegetal.
-</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 shadow-xl">
-<h3 class="text-xl font-bold text-white mb-4">Compromisso com o Mercado</h3>
-<ul class="space-y-4 text-gray-300">
-<li class="flex items-start gap-3">
-<i class="fa-solid fa-check text-brand-green mt-1"></i>
-<span>Rigor de controle e acompanhamento das atividades produtivas.</span>
-</li>
-<li class="flex items-start gap-3">
-<i class="fa-solid fa-check text-brand-green mt-1"></i>
-<span>Profissionais capacitados em todas as etapas da operação.</span>
-</li>
-<li class="flex items-start gap-3">
-<i class="fa-solid fa-check text-brand-green mt-1"></i>
-<span>Compromisso absoluto com as exigências dos nossos parceiros industriais.</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Seção Nossa Operação (Com os 4 Cards Clicáveis) -->
-<section id="operacao" class="py-24 bg-dark-900/50 border-b border-dark-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold tracking-tight text-white mb-4">Nossa Operação</h2>
-<p class="text-gray-400 max-w-2xl mx-auto text-base">Clique em uma das áreas abaixo para acessar a página interna detalhada de cada etapa da nossa operação.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Card 01: Produção -->
-<button onclick="abrirSubpagina('producao')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">
-<div>
-<div class="flex items-center justify-between mb-4">
-<span class="text-3xl font-black text-brand-green">01</span>
-<i class="fa-solid fa-fire-flame-curved text-brand-green text-xl group-hover:scale-110 transition-transform"></i>
-</div>
-<h3 class="text-xl font-semibold text-white mb-2">Produção</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Produção de carvão vegetal como principal atividade da operação.</p>
-</div>
-<div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">
-<span>Acessar área interna</span>
-<i class="fa-solid fa-arrow-right text-xs"></i>
-</div>
-</button>
-<!-- Card 02: Operação -->
-<button onclick="abrirSubpagina('operacao-detalhe')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">
-<div>
-<div class="flex items-center justify-between mb-4">
-<span class="text-3xl font-black text-brand-green">02</span>
-<i class="fa-solid fa-users-gear text-brand-green text-xl group-hover:scale-110 transition-transform"></i>
-</div>
-<h3 class="text-xl font-semibold text-white mb-2">Operação</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Profissionais dedicados às diferentes etapas do processo produtivo.</p>
-</div>
-<div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">
-<span>Acessar área interna</span>
-<i class="fa-solid fa-arrow-right text-xs"></i>
-</div>
-</button>
-<!-- Card 03: Controle -->
-<button onclick="abrirSubpagina('controle')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">
-<div>
-<div class="flex items-center justify-between mb-4">
-<span class="text-3xl font-black text-brand-green">03</span>
-<i class="fa-solid fa-clipboard-check text-brand-green text-xl group-hover:scale-110 transition-transform"></i>
-</div>
-<h3 class="text-xl font-semibold text-white mb-2">Controle</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Organização e acompanhamento das atividades que fazem parte da operação.</p>
-</div>
-<div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">
-<span>Acessar área interna</span>
-<i class="fa-solid fa-arrow-right text-xs"></i>
-</div>
-</button>
-<!-- Card 04: Fornecimento -->
-<button onclick="abrirSubpagina('fornecimento')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">
-<div>
-<div class="flex items-center justify-between mb-4">
-<span class="text-3xl font-black text-brand-green">04</span>
-<i class="fa-solid fa-truck-fast text-brand-green text-xl group-hover:scale-110 transition-transform"></i>
-</div>
-<h3 class="text-xl font-semibold text-white mb-2">Fornecimento</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Atuação direcionada ao atendimento do mercado industrial e siderúrgico.</p>
-</div>
-<div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">
-<span>Acessar área interna</span>
-<i class="fa-solid fa-arrow-right text-xs"></i>
-</div>
-</button>
-</div>
-</div>
-</section>
-<!-- Seção Equipe -->
-<section id="equipe" class="py-24 bg-dark-950 border-b border-dark-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold tracking-tight text-white mb-4">Nossa Equipe</h2>
-<p class="text-gray-400 max-w-2xl mx-auto text-base">Profissionais qualificados e comprometidos com a excelência operacional.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Profissionais Experientes</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Colaboradores experientes e focados em manter o alto padrão em cada etapa.</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Segurança em Foco</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Garantindo total segurança e controle nas rotinas do processo produtivo.</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Organização Operacional</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Processos estruturados para manter a máxima eficiência diária.</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Compromisso na Entrega</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Dedicação total para atender com pontualidade e rigor as demandas.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Seção Estrutura -->
-<section id="estrutura" class="py-24 bg-dark-950 border-b border-dark-800">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold tracking-tight text-white mb-4">Nossa Estrutura</h2>
-<p class="text-gray-400 max-w-2xl mx-auto text-base">Instalações preparadas para atender com eficiência a demanda industrial.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Área de Produção</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Estrutura física planejada para dar suporte completo às atividades produtivas.</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Armazenamento</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Espaços organizados para o correto acondicionamento do carvão vegetal.</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Escoamento e Logística</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Preparada para viabilizar o fluxo contínuo de escoamento e fornecimento.</p>
-</div>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">
-<h3 class="text-lg font-semibold text-white mb-2">Controle das Fases</h3>
-<p class="text-gray-400 text-sm leading-relaxed">Acompanhamento e organização rigorosa mantidos em todas as fases.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Seção Contato -->
-<section id="contato" class="py-24 bg-dark-950">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-<h2 class="text-3xl font-bold tracking-tight text-white mb-4">Entre em Contato</h2>
-<p class="text-gray-400 max-w-2xl mx-auto text-base mb-12">Fale conosco através do nosso e-mail oficial para informações, parcerias e fornecimento.</p>
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 sm:p-12 max-w-xl mx-auto text-center shadow-xl">
-<p class="text-gray-300 text-base mb-8">Estamos à disposição para atender suas demandas com agilidade pelo nosso e-mail oficial:</p>
-<div class="mb-8">
-<a href="mailto:wcarvoaria@gmail.com" class="text-brand-green font-bold text-xl sm:text-2xl hover:underline">wcarvoaria@gmail.com</a>
-</div>
-<div class="flex justify-center">
-<a href="#" onclick="tratarBotaoEmail(event)" class="inline-flex items-center justify-center gap-3 bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-green/20 text-base w-full sm:w-auto">
-<i class="fa-solid fa-envelope"></i>
-Falar por e-mail
-</a>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- ÁREAS INTERNAS / SUBPÁGINAS -->
-<!-- 01. Área Interna: Produção -->
-<div id="subpage-producao" class="subpage-view pt-32 pb-24 bg-dark-950 min-h-screen">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="mb-8">
-<button onclick="voltarParaHome()" class="inline-flex items-center gap-2 text-brand-green hover:text-emerald-400 text-sm font-semibold mb-6 transition-colors cursor-pointer bg-transparent border-none">
-<i class="fa-solid fa-arrow-left"></i> Voltar para Nossa Operação
-</button>
-<span class="text-brand-green text-xs font-semibold uppercase tracking-widest block">Área Interna 01</span>
-<h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mt-1 mb-6">Produção</h2>
-<p class="text-gray-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-Área dedicada à fabricação e queima do carvão vegetal. Estrutura preparada para receber futuramente fotos reais dos fornos, da queima do carvão, preparação da madeira e processo produtivo.
-</p>
-</div>
-<!-- Seção de Fotos Profissional (Limpa, sem fotos falsas) -->
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 sm:p-12 mt-8">
-<div class="flex items-center gap-3 mb-6">
-<div class="w-10 h-10 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xl">
-<i class="fa-solid fa-camera"></i>
-</div>
-<div>
-<h3 class="text-xl font-semibold text-white">Galeria de Registros da Produção</h3>
-<p class="text-gray-400 text-xs">Espaço reservado para adição futura de fotografias reais</p>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-<div class="bg-dark-950 border border-dark-800/80 rounded-xl h-52 flex flex-col items-center justify-center text-center p-6 text-gray-500">
-<i class="fa-regular fa-image text-2xl mb-2 opacity-40"></i>
-<span class="text-xs">Espaço preparado para foto real dos Fornos</span>
-</div>
-<div class="bg-dark-950 border border-dark-800/80 rounded-xl h-52 flex flex-col items-center justify-center text-center p-6 text-gray-500">
-<i class="fa-regular fa-image text-2xl mb-2 opacity-40"></i>
-<span class="text-xs">Espaço preparado para foto real da Queima do Carvão</span>
-</div>
-<div class="bg-dark-950 border border-dark-800/80 rounded-xl h-52 flex flex-col items-center justify-center text-center p-6 text-gray-500">
-<i class="fa-regular fa-image text-2xl mb-2 opacity-40"></i>
-<span class="text-xs">Espaço preparado para foto real do Processo Produtivo</span>
-</div>
-</div>
-</div>
-<div class="mt-12">
-<button onclick="voltarParaHome()" class="bg-dark-900 hover:bg-dark-800 border border-dark-700 text-white font-semibold px-6 py-3 rounded-xl transition-all inline-flex items-center gap-2 cursor-pointer">
-<i class="fa-solid fa-arrow-left"></i> Voltar para Nossa Operação
-</button>
-</div>
-</div>
-</div>
-<!-- 02. Área Interna: Operação -->
-<div id="subpage-operacao-detalhe" class="subpage-view pt-32 pb-24 bg-dark-950 min-h-screen">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="mb-8">
-<button onclick="voltarParaHome()" class="inline-flex items-center gap-2 text-brand-green hover:text-emerald-400 text-sm font-semibold mb-6 transition-colors cursor-pointer bg-transparent border-none">
-<i class="fa-solid fa-arrow-left"></i> Voltar para Nossa Operação
-</button>
-<span class="text-brand-green text-xs font-semibold uppercase tracking-widest block">Área Interna 02</span>
-<h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white mt-1 mb-6">Operação</h2>
-<p class="text-gray-300 text-base sm:text-lg max-w-3xl leading-relaxed">
-Focada no capital humano e nos meios de execução. Estrutura preparada para fotos reais dos profissionais trabalhando, equipes em campo, rotina operacional e equipamentos.
-</p>
-</div>
-<!-- Seção de Fotos Profissional (Limpa, sem fotos falsas) -->
-<div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 sm:p-12 mt-8">
-<div class="flex items-center gap-3 mb-6">
-<div class="w-10 h-10 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xl">
-<i class="fa-solid fa-camera"></i>
-</div>
-<div>
-<h3 class="text-xl font-semibold text-white">G
+<!DOCTYPE html>  <html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>W&C Carvoaria | Produção e Fornecimento de Carvão Vegetal</title>  
+    <!-- Tailwind CSS CDN -->  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+    <script>  
+        tailwind.config = {  
+            theme: {  
+                extend: {  
+                    colors: {  
+                        dark: {  
+                            900: '#121212',  
+                            950: '#0a0a0a',  
+                            800: '#1e1e1e',  
+                            700: '#2a2a2a'  
+                        },  
+                        brand: {  
+                            green: '#10b981',  
+                            greenHover: '#059669'  
+                        }  
+                    }  
+                }  
+            }  
+        }  
+    </script>  
+    <style>  
+        /* Estilos para o sistema de subpáginas internas via JS */  
+        .subpage-view {  
+            display: none;  
+        }  
+        .subpage-view.active {  
+            display: block;  
+        }  
+    </style>  
+</head>  
+<body class="bg-dark-950 text-gray-100 font-sans antialiased selection:bg-brand-green selection:text-black">  <!-- CABEÇALHO / MENU PRINCIPAL -->  
+<header class="fixed top-0 left-0 right-0 z-50 bg-dark-950/90 backdrop-blur-md border-b border-dark-800">  
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">  
+        <div class="flex items-center gap-3 cursor-pointer" onclick="voltarParaHome()">  
+            <div class="w-10 h-10 rounded-lg bg-brand-green flex items-center justify-center text-dark-950 font-black text-xl shadow-lg shadow-brand-green/20">  
+                W&C  
+            </div>  
+            <span class="text-xl font-bold tracking-tight text-white">W&C Carvoaria</span>  
+        </div>  
+          
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">  
+            <a href="#inicio" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Início</a>  
+            <a href="#empresa" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Empresa</a>  
+            <a href="#operacao" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Operação</a>  
+            <a href="#equipe" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Equipe</a>  
+            <a href="#estrutura" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Estrutura</a>  
+            <a href="#contato" onclick="voltarParaHome()" class="hover:text-brand-green transition-colors">Contato</a>  
+        </nav>  
+
+        <div class="hidden md:block">  
+            <a href="#" onclick="tratarBotaoEmail(event)" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-brand-green/10 inline-flex items-center gap-2">  
+                <i class="fa-solid fa-envelope"></i> Falar por e-mail  
+            </a>  
+        </div>  
+
+        <!-- Botão Menu Mobile -->  
+        <button id="menu-btn" aria-label="Abrir Menu" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">  
+            <i class="fa-solid fa-bars text-2xl"></i>  
+        </button>  
+    </div>  
+
+    <!-- Menu Mobile Dropdown -->  
+    <div id="mobile-menu" class="hidden md:hidden bg-dark-950 border-b border-dark-800 px-6 py-6 space-y-4">  
+        <a href="#inicio" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Início</a>  
+        <a href="#empresa" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Empresa</a>  
+        <a href="#operacao" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Operação</a>  
+        <a href="#equipe" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Equipe</a>  
+        <a href="#estrutura" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Estrutura</a>  
+        <a href="#contato" onclick="voltarParaHome(); fecharMenuMobile();" class="block text-base font-medium text-gray-300 hover:text-brand-green">Contato</a>  
+        <div class="pt-4 border-t border-dark-800">  
+            <a href="#" onclick="tratarBotaoEmail(event); fecharMenuMobile();" class="block text-center bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-5 py-3 rounded-lg">  
+                <i class="fa-solid fa-envelope"></i> Falar por e-mail  
+            </a>  
+        </div>  
+    </div>  
+</header>  
+
+<!-- CONTAINER DA PÁGINA PRINCIPAL (HOME) -->  
+<main id="home-view" class="subpage-view active">  
+    <!-- Seção Início / Hero -->  
+    <section id="inicio" class="relative pt-36 pb-28 md:pt-48 md:pb-36 border-b border-dark-800 overflow-hidden">  
+        <div class="absolute inset-0 z-0">  
+            <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&w=1920&q=80" alt="Carvoaria Industrial" class="w-full h-full object-cover object-center opacity-30">  
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-dark-950/90 to-dark-950"></div>  
+        </div>  
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">  
+            <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight mb-6 max-w-4xl mx-auto leading-tight">  
+                Produção e Fornecimento de Carvão Vegetal  
+            </h1>  
+            <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">  
+                Atuação sólida no setor de produção e fornecimento de carvão vegetal para o mercado industrial e siderúrgico.  
+            </p>  
+            <div class="flex flex-col sm:flex-row justify-center gap-4">  
+                <a href="#operacao" class="bg-brand-green hover:bg-brand-greenHover text-dark-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-green/20">  
+                    Nossa Operação  
+                </a>  
+                <a href="#" onclick="tratarBotaoEmail(event)" class="bg-dark-900 hover:bg-dark-800 border border-dark-700 text-white font-semibold px-8 py-4 rounded-xl transition-all inline-flex items-center justify-center gap-2">  
+                    <i class="fa-solid fa-envelope text-brand-green"></i> Falar por e-mail  
+                </a>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Seção Empresa -->  
+    <section id="empresa" class="py-24 bg-dark-950 border-b border-dark-800">  
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">  
+                <div>  
+                    <h2 class="text-3xl font-bold tracking-tight text-white mb-6">Nossa Empresa</h2>  
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">  
+                        A W&C Carvoaria é estruturada para atender com seriedade e eficiência as demandas do mercado industrial, prezando sempre pela organização, controle e cumprimento de prazos em sua operação.  
+                    </p>  
+                    <p class="text-gray-400 text-base leading-relaxed">  
+                        Contamos com uma equipe dedicada e processos bem definidos para garantir a constância e a qualidade na entrega do carvão vegetal.  
+                    </p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 shadow-xl">  
+                    <h3 class="text-xl font-bold text-white mb-4">Compromisso com o Mercado</h3>  
+                    <ul class="space-y-4 text-gray-300">  
+                        <li class="flex items-start gap-3">  
+                            <i class="fa-solid fa-check text-brand-green mt-1"></i>  
+                            <span>Rigor de controle e acompanhamento das atividades produtivas.</span>  
+                        </li>  
+                        <li class="flex items-start gap-3">  
+                            <i class="fa-solid fa-check text-brand-green mt-1"></i>  
+                            <span>Profissionais capacitados em todas as etapas da operação.</span>  
+                        </li>  
+                        <li class="flex items-start gap-3">  
+                            <i class="fa-solid fa-check text-brand-green mt-1"></i>  
+                            <span>Compromisso absoluto com as exigências dos nossos parceiros industriais.</span>  
+                        </li>  
+                    </ul>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Seção Nossa Operação (Com os 4 Cards Clicáveis) -->  
+    <section id="operacao" class="py-24 bg-dark-900/50 border-b border-dark-800">  
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
+            <div class="text-center mb-16">  
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Nossa Operação</h2>  
+                <p class="text-gray-400 max-w-2xl mx-auto text-base">Clique em uma das áreas abaixo para acessar a página interna detalhada de cada etapa da nossa operação.</p>  
+            </div>  
+              
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">  
+                <!-- Card 01: Produção -->  
+                <button onclick="abrirSubpagina('producao')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">  
+                    <div>  
+                        <div class="flex items-center justify-between mb-4">  
+                            <span class="text-3xl font-black text-brand-green">01</span>  
+                            <i class="fa-solid fa-fire-flame-curved text-brand-green text-xl group-hover:scale-110 transition-transform"></i>  
+                        </div>  
+                        <h3 class="text-xl font-semibold text-white mb-2">Produção</h3>  
+                        <p class="text-gray-400 text-sm leading-relaxed">Produção de carvão vegetal como principal atividade da operação.</p>  
+                    </div>  
+                    <div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">  
+                        <span>Acessar área interna</span>  
+                        <i class="fa-solid fa-arrow-right text-xs"></i>  
+                    </div>  
+                </button>  
+
+                <!-- Card 02: Operação -->  
+                <button onclick="abrirSubpagina('operacao-detalhe')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">  
+                    <div>  
+                        <div class="flex items-center justify-between mb-4">  
+                            <span class="text-3xl font-black text-brand-green">02</span>  
+                            <i class="fa-solid fa-users-gear text-brand-green text-xl group-hover:scale-110 transition-transform"></i>  
+                        </div>  
+                        <h3 class="text-xl font-semibold text-white mb-2">Operação</h3>  
+                        <p class="text-gray-400 text-sm leading-relaxed">Profissionais dedicados às diferentes etapas do processo produtivo.</p>  
+                    </div>  
+                    <div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">  
+                        <span>Acessar área interna</span>  
+                        <i class="fa-solid fa-arrow-right text-xs"></i>  
+                    </div>  
+                </button>  
+
+                <!-- Card 03: Controle -->  
+                <button onclick="abrirSubpagina('controle')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">  
+                    <div>  
+                        <div class="flex items-center justify-between mb-4">  
+                            <span class="text-3xl font-black text-brand-green">03</span>  
+                            <i class="fa-solid fa-clipboard-check text-brand-green text-xl group-hover:scale-110 transition-transform"></i>  
+                        </div>  
+                        <h3 class="text-xl font-semibold text-white mb-2">Controle</h3>  
+                        <p class="text-gray-400 text-sm leading-relaxed">Organização e acompanhamento das atividades que fazem parte da operação.</p>  
+                    </div>  
+                    <div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">  
+                        <span>Acessar área interna</span>  
+                        <i class="fa-solid fa-arrow-right text-xs"></i>  
+                    </div>  
+                </button>  
+
+                <!-- Card 04: Fornecimento -->  
+                <button onclick="abrirSubpagina('fornecimento')" class="bg-dark-900 border border-dark-800 hover:border-brand-green rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 group text-left flex flex-col justify-between cursor-pointer w-full">  
+                    <div>  
+                        <div class="flex items-center justify-between mb-4">  
+                            <span class="text-3xl font-black text-brand-green">04</span>  
+                            <i class="fa-solid fa-truck-fast text-brand-green text-xl group-hover:scale-110 transition-transform"></i>  
+                        </div>  
+                        <h3 class="text-xl font-semibold text-white mb-2">Fornecimento</h3>  
+                        <p class="text-gray-400 text-sm leading-relaxed">Atuação direcionada ao atendimento do mercado industrial e siderúrgico.</p>  
+                    </div>  
+                    <div class="mt-6 pt-4 border-t border-dark-800 text-brand-green text-sm font-medium flex items-center gap-2">  
+                        <span>Acessar área interna</span>  
+                        <i class="fa-solid fa-arrow-right text-xs"></i>  
+                    </div>  
+                </button>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Seção Equipe -->  
+    <section id="equipe" class="py-24 bg-dark-950 border-b border-dark-800">  
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
+            <div class="text-center mb-16">  
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Nossa Equipe</h2>  
+                <p class="text-gray-400 max-w-2xl mx-auto text-base">Profissionais qualificados e comprometidos com a excelência operacional.</p>  
+            </div>  
+              
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Profissionais Experientes</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Colaboradores experientes e focados em manter o alto padrão em cada etapa.</p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Segurança em Foco</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Garantindo total segurança e controle nas rotinas do processo produtivo.</p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Organização Operacional</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Processos estruturados para manter a máxima eficiência diária.</p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Compromisso na Entrega</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Dedicação total para atender com pontualidade e rigor as demandas.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Seção Estrutura -->  
+    <section id="estrutura" class="py-24 bg-dark-950 border-b border-dark-800">  
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">  
+            <div class="text-center mb-16">  
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Nossa Estrutura</h2>  
+                <p class="text-gray-400 max-w-2xl mx-auto text-base">Instalações preparadas para atender com eficiência a demanda industrial.</p>  
+            </div>  
+              
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Área de Produção</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Estrutura física planejada para dar suporte completo às atividades produtivas.</p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Armazenamento</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Espaços organizados para o correto acondicionamento do carvão vegetal.</p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Escoamento e Logística</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Preparada para viabilizar o fluxo contínuo de escoamento e fornecimento.</p>  
+                </div>  
+                <div class="bg-dark-900 border border-dark-800 rounded-2xl p-6">  
+                    <h3 class="text-lg font-semibold text-white mb-2">Controle das Fases</h3>  
+                    <p class="text-gray-400 text-sm leading-relaxed">Acompanhamento e organização rigorosa mantidos em todas as fases.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Seção Contato -->  
+    <section id="contato" class="py-24 bg-dark-950">  
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">  
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Entre em Contato</h2>  
+            <p class="text-gray-400 max-w-2xl mx-auto text-base mb-12">Fale conosco através do nosso e-mail oficial para informações, parcerias e fornecimento.</p>  
+              
+            <div class="bg-dark-900 border border-dark-800 rounded-2xl p-8 sm:p-12 max-w-xl mx-auto text-center shadow-xl">  
+                <p class="text-gray-300 text-base mb-8">Estamos à disposição para atender suas demandas com agilidade pelo nosso e-mail oficial:</p>  
+                <div class="mb-8">  
+                    <a href="mailto:wcarvoaria@gmail.com" class="text-brand-green font-bold text-xl sm:text-2xl hover:underline">wcarvoaria@gmail.com</a>  
+       
