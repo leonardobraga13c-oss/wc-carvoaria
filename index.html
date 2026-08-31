@@ -1,415 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>W&C Carvoaria | Produção de Carvão Vegetal</title>
-  <meta name="description" content="W&C Carvoaria - Produção de carvão vegetal em Paragominas, Pará, com foco no setor industrial e siderúrgico.">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0d0c;
-      color: #f2f2f2;
-      line-height: 1.6;
-    }
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(11, 13, 12, 0.94);
-      border-bottom: 1px solid #252925;
-      backdrop-filter: blur(10px);
-    }
-    .nav {
-      max-width: 1150px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-    .logo span {
-      color: #79a83b;
-    }
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #8fbd4b;
-    }
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(rgba(0,0,0,.70), rgba(0,0,0,.90)), radial-gradient(circle at center, #30352e, #080908 70%);
-    }
-    .hero-content {
-      max-width: 1150px;
-      width: 100%;
-      margin: auto;
-      padding: 130px 25px 80px;
-    }
-    .tag {
-      display: inline-block;
-      border: 1px solid #79a83b;
-      color: #9bc75a;
-      padding: 7px 14px;
-      border-radius: 30px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
-    h1 {
-      max-width: 800px;
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 1;
-      letter-spacing: -2px;
-      margin-bottom: 25px;
-    }
-    h1 span {
-      color: #8fbd4b;
-    }
-    .hero p {
-      max-width: 650px;
-      color: #c4c4c4;
-      font-size: 19px;
-      margin-bottom: 35px;
-    }
-    .button {
-      display: inline-block;
-      background: #8fbd4b;
-      color: #10130d;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 6px;
-      font-weight: 700;
-      transition: background 0.3s, transform 0.2s;
-    }
-    .button:hover {
-      background: #79a83b;
-      transform: translateY(-2px);
-    }
-    section {
-      padding: 90px 25px;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
-    .section-title {
-      margin-bottom: 45px;
-    }
-    .section-title small {
-      color: #8fbd4b;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-    .section-title h2 {
-      font-size: 38px;
-      margin-top: 8px;
-    }
-    .about {
-      background: #111411;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-    }
-    .about p {
-      color: #bbb;
-      margin-bottom: 15px;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .card {
-      background: #151915;
-      border: 1px solid #272d27;
-      padding: 30px;
-      border-radius: 10px;
-      transition: border-color 0.3s;
-    }
-    .card:hover {
-      border-color: #495e2d;
-    }
-    .card h3 {
-      margin-bottom: 12px;
-      color: #fff;
-    }
-    .card p {
-      color: #aaa;
-      font-size: 15px;
-    }
-    .number {
-      color: #8fbd4b;
-      font-size: 30px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-    .team {
-      background: #0d100e;
-    }
-    .responsibility {
-      background: #111411;
-    }
-    /* Estilo para os blocos de fotos/estrutura futura */
-    .structure {
-      background: #0d100e;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-    .photo-placeholder {
-      background: #131714;
-      border: 1px dashed #303a2f;
-      border-radius: 10px;
-      height: 240px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      color: #888;
-      transition: border-color 0.3s;
-    }
-    .photo-placeholder:hover {
-      border-color: #79a83b;
-    }
-    .photo-placeholder span {
-      color: #8fbd4b;
-      font-size: 13px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .photo-placeholder p {
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    .location {
-      background: #0f1210;
-      border-top: 1px solid #202620;
-      border-bottom: 1px solid #202620;
-    }
-    .contact {
-      text-align: center;
-      background: #171c16;
-    }
-    .contact p {
-      color: #bbb;
-      max-width: 650px;
-      margin: 15px auto 30px;
-    }
-    footer {
-      border-top: 1px solid #292d29;
-      text-align: center;
-      padding: 30px 25px;
-      color: #777;
-      font-size: 13px;
-      background: #080a09;
-    }
-    footer p {
-      margin-top: 5px;
-      color: #555;
-    }
-    @media (max-width: 750px) {
-      .nav nav a { margin-left: 15px; font-size: 13px; }
-      .about-grid, .card-grid, .photo-grid { grid-template-columns: 1fr; }
-      section { padding: 70px 20px; }
-      h1 { font-size: 42px; }
-      .hero p { font-size: 17px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W&C Carvoaria | Produção e Fornecimento de Carvão Vegetal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <header>
-    <div class="nav">
-      <div class="logo">W<span>&</span>C</div>
-      <nav>
-        <a href="#empresa">Empresa</a>
-        <a href="#producao">Produção</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#estrutura">Estrutura</a>
-        <a href="#localizacao">Localização</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="tag">W&C Carvoaria • Tubarão Empreendimento</div>
-        <h1>Produção de<br><span>carvão vegetal.</span></h1>
-        <p>Atuação sólida e dedicada à produção de carvão vegetal para o setor industrial e siderúrgico.</p>
-        <a class="button" href="https://wa.me/5594984371132?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20responsável%20da%20W%26C%20Carvoaria." target="_blank">Falar com Comercial</a>
-      </div>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-emerald-500 selection:text-zinc-950">
+
+    <!-- Cabeçalho / Menu -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500 flex items-center justify-center text-zinc-950 font-black text-xl">
+                    W&C
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">W&C Carvoaria</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+                <a href="#inicio" class="hover:text-emerald-400 transition-colors">Início</a>
+                <a href="#empresa" class="hover:text-emerald-400 transition-colors">Empresa</a>
+                <a href="#producao" class="hover:text-emerald-400 transition-colors">Produção</a>
+                <a href="#equipe" class="hover:text-emerald-400 transition-colors">Equipe</a>
+                <a href="#estrutura" class="hover:text-emerald-400 transition-colors">Estrutura</a>
+                <a href="#contato" class="hover:text-emerald-400 transition-colors">Contato</a>
+            </nav>
+            <div>
+                <a href="#contato" class="hidden sm:inline-block bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-emerald-500/10">
+                    Fale Conosco
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Início / Hero -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-44 md:pb-32 bg-gradient-to-b from-zinc-900 to-zinc-950 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-6">
+                Excelência no Carvão Vegetal
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+                Qualidade e Compromisso no Fornecimento Industrial
+            </h1>
+            <p class="text-zinc-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Atuação sólida no setor de produção e fornecimento de carvão vegetal para o mercado siderúrgico e industrial.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#producao" class="bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20">
+                    Conhecer Operação
+                </a>
+                <a href="#contato" class="bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold px-8 py-4 rounded-xl transition-all">
+                    Entrar em Contato
+                </a>
+            </div>
+        </div>
     </section>
 
-    <section class="about" id="empresa">
-      <div class="container">
-        <div class="section-title">
-          <small>Sobre nós</small>
-          <h2>W&C Carvoaria</h2>
+    <!-- Seção Empresa -->
+    <section id="empresa" class="py-20 bg-zinc-950 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6">Nossa Empresa</h2>
+                    <p class="text-zinc-300 text-base sm:text-lg leading-relaxed mb-6">
+                        A W&C Carvoaria é estruturada para atender com seriedade e eficiência as demandas do mercado industrial, prezando sempre pela organização, controle e cumprimento de prazos em sua operação.
+                    </p>
+                    <p class="text-zinc-400 text-base leading-relaxed mb-8">
+                        Contamos com uma equipe dedicada e processos bem definidos para garantir a constância e a qualidade na entrega do carvão vegetal.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 border-t border-zinc-800 pt-6">
+                        <div>
+                            <span class="block text-3xl font-extrabold text-emerald-400 mb-1">Foco</span>
+                            <span class="text-zinc-400 text-sm">Qualidade e Atendimento</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-emerald-400 mb-1">Mercado</span>
+                            <span class="text-zinc-400 text-sm">Industrial e Siderúrgico</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 lg:p-12 relative">
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Nossos Pilares</h3>
+                    <ul class="space-y-4 text-zinc-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <span>Rigor de controle e acompanhamento das atividades produtivas.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <span>Profissionais capacitados em todas as etapas da operação.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
+                            <span>Compromisso absoluto com as exigências dos nossos parceiros industriais.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="about-grid">
-          <div>
-            <p>A W&C Carvoaria (Tubarão Empreendimento) atua de forma estruturada no segmento de produção de carvão vegetal, atendendo às demandas exigidas pelo mercado industrial.</p>
-            <p>Nossa operação reúne profissionais qualificados em diversas funções, garantindo controle, dedicação e eficiência em cada etapa do processo produtivo.</p>
-          </div>
-          <div>
-            <p>Focados exclusivamente no modelo de negócios B2B, mantemos parcerias comerciais sólidas voltadas ao fornecimento contínuo para o setor siderúrgico.</p>
-            <p>Segurança operacional, organização e compromisso com o capital humano são os pilares que sustentam a nossa marca.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section id="producao">
-      <div class="container">
-        <div class="section-title">
-          <small>Atuação</small>
-          <h2>Nossa produção</h2>
+    <!-- Seção Produção Atualizada -->
+    <section id="producao" class="py-20 bg-zinc-950 text-zinc-100 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">Nossa Operação</h2>
+                <p class="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg">Conheça as etapas que estruturam o nosso processo produtivo e comercial.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Cartão 01 -->
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 sm:p-8 relative flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
+                    <div>
+                        <span class="text-4xl sm:text-5xl font-extrabold text-emerald-500/80 block mb-4">01</span>
+                        <h3 class="text-xl font-semibold text-white mb-3">Produção</h3>
+                        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Produção de carvão vegetal como principal atividade da operação.</p>
+                    </div>
+                </div>
+
+                <!-- Cartão 02 -->
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 sm:p-8 relative flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
+                    <div>
+                        <span class="text-4xl sm:text-5xl font-extrabold text-emerald-500/80 block mb-4">02</span>
+                        <h3 class="text-xl font-semibold text-white mb-3">Operação</h3>
+                        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Profissionais dedicados às diferentes etapas do processo produtivo.</p>
+                    </div>
+                </div>
+
+                <!-- Cartão 03 -->
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 sm:p-8 relative flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
+                    <div>
+                        <span class="text-4xl sm:text-5xl font-extrabold text-emerald-500/80 block mb-4">03</span>
+                        <h3 class="text-xl font-semibold text-white mb-3">Controle</h3>
+                        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Organização e acompanhamento das atividades que fazem parte da operação.</p>
+                    </div>
+                </div>
+
+                <!-- Cartão 04 -->
+                <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-6 sm:p-8 relative flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
+                    <div>
+                        <span class="text-4xl sm:text-5xl font-extrabold text-emerald-500/80 block mb-4">04</span>
+                        <h3 class="text-xl font-semibold text-white mb-3">Fornecimento</h3>
+                        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">Atuação direcionada ao atendimento do mercado industrial e siderúrgico.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-grid">
-          <div class="card">
-            <div class="number">01</div>
-            <h3>Carvão vegetal</h3>
-            <p>Produto principal da operação, voltado para atender aos parâmetros exigidos pelo setor industrial.</p>
-          </div>
-          <div class="card">
-            <div class="number">02</div>
-            <h3>Processo produtivo</h3>
-            <p>Estrutura operacional organizada e acompanhada de perto por profissionais experientes.</p>
-          </div>
-          <div class="card">
-            <div class="number">03</div>
-            <h3>Mercado B2B</h3>
-            <p>Relações comerciais diretas e corporativas com foco em parcerias de longo prazo na siderurgia.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="team" id="equipe">
-      <div class="container">
-        <div class="section-title">
-          <small>Nossa equipe</small>
-          <h2>Pessoas que fazem a operação acontecer.</h2>
+    <!-- Seção Equipe -->
+    <section id="equipe" class="py-20 bg-zinc-900/50 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">Nossa Equipe</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg mb-12">Profissionais qualificados e comprometidos com a excelência operacional.</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-3xl mx-auto">
+                <p class="text-zinc-300 text-lg leading-relaxed">
+                    Contamos com colaboradores experientes e focados em manter o alto padrão em cada uma das etapas do processo produtivo, garantindo segurança, organização e eficiência na entrega.
+                </p>
+            </div>
         </div>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Administrativo</h3>
-            <p>Gestão de processos, organização documental e suporte estratégico às atividades diárias.</p>
-          </div>
-          <div class="card">
-            <h3>Forneiros</h3>
-            <p>Profissionais fundamentais na condução técnica e operacional da queima e produção do carvão.</p>
-          </div>
-          <div class="card">
-            <h3>Equipe Operacional</h3>
-            <p>Colaboradores dedicados a funções essenciais, manutenção e suporte logístico na área.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="responsibility">
-      <div class="container">
-        <div class="section-title">
-          <small>Compromisso</small>
-          <h2>Responsabilidade e pessoas.</h2>
+    <!-- Seção Estrutura -->
+    <section id="estrutura" class="py-20 bg-zinc-950 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">Nossa Estrutura</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg mb-12">Instalações preparadas para atender com eficiência a demanda industrial.</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 max-w-3xl mx-auto">
+                <p class="text-zinc-300 text-lg leading-relaxed">
+                    Nossa estrutura física e operacional foi planejada para dar suporte completo às atividades de produção e escoamento do carvão vegetal, mantendo rigoroso controle em todas as fases.
+                </p>
+            </div>
         </div>
-        <div class="about-grid">
-          <div>
-            <p>A força da nossa produção reside no engajamento e na dedicação de cada profissional envolvido na rotina da carvoaria.</p>
-          </div>
-          <div>
-            <p>Valorizamos um ambiente de trabalho pautado pelo respeito, organização e compromisso mútuo com os colaboradores.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="structure" id="estrutura">
-      <div class="container">
-        <div class="section-title">
-          <small>Registro operacional</small>
-          <h2>Estrutura e operação.</h2>
+    <!-- Seção Contato -->
+    <section id="contato" class="py-20 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">Entre em Contato</h2>
+            <p class="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg mb-12">Fale conosco para parcerias e fornecimento.</p>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 sm:p-12 max-w-xl mx-auto text-center">
+                <p class="text-zinc-300 text-lg mb-8">Estamos à disposição para atender dúvidas, propostas e novas parcerias comerciais.</p>
+                <a href="mailto:contato@wccarvoaria.com.br" class="inline-block bg-emerald-500 hover:bg-emerald-600 text-zinc-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-emerald-500/20">
+                    Enviar E-mail / Mensagem
+                </a>
+            </div>
         </div>
-        <div class="photo-grid">
-          <div class="photo-placeholder">
-            <span>Área de Produção / Fornos</span>
-            <p>Espaço reservado para inserção de foto real da operação.</p>
-          </div>
-          <div class="photo-placeholder">
-            <span>Armazenamento de Carvão</span>
-            <p>Espaço reservado para inserção de foto real do produto.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section class="location" id="localizacao">
-      <div class="container">
-        <div class="section-title">
-          <small>Base operacional</small>
-          <h2>Localização estratégica.</h2>
+    <!-- Rodapé -->
+    <footer class="bg-zinc-950 border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2026 W&C Carvoaria. Todos os direitos reservados.</p>
         </div>
-        <div class="about-grid">
-          <div>
-            <p>Nossas atividades estão sediadas em <strong>Paragominas, no estado do Pará</strong>, uma região de forte relevância e expressão econômica no setor florestal e produtivo.</p>
-          </div>
-          <div>
-            <p>A localização favorece a logística de escoamento e a integração com parceiros comerciais de grande porte no setor industrial e siderúrgico.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <section class="contact" id="contato">
-      <div class="container">
-        <div class="section-title">
-          <small>Contato comercial</small>
-          <h2>Vamos conversar.</h2>
-        </div>
-        <p>Para alinhamentos estratégicos, informações institucionais ou assuntos comerciais, entre em contato direto com nossa equipe.</p>
-        <a class="button" href="https://wa.me/5594984371132?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20o%20responsável%20da%20W%26C%20Carvoaria." target="_blank">Falar pelo WhatsApp</a>
-      </div>
-    </section>
-  </main>
-  <footer>
-    © 2026 W&C Carvoaria (Tubarão Empreendimento). Todos os direitos reservados.
-    <p>Paragominas • Pará • Brasil</p>
-  </footer>
 </body>
 </html>
